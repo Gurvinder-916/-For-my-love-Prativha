@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Prativha</title>
+    <style>
+        body, html { margin: 0; height: 100%; font-family: 'Segoe UI', sans-serif; transition: background 1s ease; }
+        #wrapper { 
+            height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+        .card { background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); max-width: 600px; }
+        h1 { color: #d63384; font-size: 2em; }
+        .buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        button { padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        #yesBtn { background: #d63384; color: white; font-size: 1.2em; }
+        #noBtn { background: #e0e0e0; color: #555; }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="card">
+            <h1 id="message">Prativha, my Baby, Birdie, Bacha, Jaana, I love you.</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="alert('Yayyy I knew you love me too mwahhhh 💋')">I love you too!</button>
+                <button id="noBtn" onmouseover="changeContent()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const messages = [
+            "Prativha, my Baby, Birdie, Bacha, Jaana, I love you.",
+            "Please, give me another chance? My heart beats only for you.",
+            "I know I haven't been perfect, but my love for you is real.",
+            "You are my whole world. Please don't say no.",
+            "Every sunset reminds me of your smile. I am truly sorry for my mistakes.",
+            "I promise to grow and be the partner you deserve. I love you endlessly!"
+        ];
+        const backgrounds = [
+            "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+            "linear-gradient(135deg, #ff758c, #ff7eb3)",
+            "linear-gradient(135deg, #ff4e50, #f9d423)",
+            "linear-gradient(135deg, #845ec2, #d65db1)",
+            "linear-gradient(135deg, #b34180, #ff80ab)",
+            "linear-gradient(135deg, #6c003e, #d63384)"
+        ];
+
+        function changeContent() {
+            const msg = document.getElementById('message');
+            const wrapper = document.getElementById('wrapper');
+            
+            if (clickCount < messages.length - 1) {
+                clickCount++;
+                msg.innerText = messages[clickCount];
+                wrapper.style.background = backgrounds[clickCount];
+            } else {
+                document.getElementById('noBtn').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
