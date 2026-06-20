@@ -16,6 +16,7 @@
         button { padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         #yesBtn { background: #d63384; color: white; font-size: 1.2em; }
         #noBtn { background: #e0e0e0; color: #555; position: absolute; }
+        /* Emoji styling */
         .emoji { position: absolute; font-size: 2rem; z-index: 1; pointer-events: none; opacity: 0.7; }
     </style>
 </head>
@@ -56,6 +57,7 @@
             "I am yours, completely and forever."
         ];
         
+        // Create background emojis
         function createEmojis() {
             for (let i = 0; i < 40; i++) {
                 const span = document.createElement('span');
@@ -63,6 +65,7 @@
                 span.className = 'emoji';
                 span.style.left = Math.random() * 100 + 'vw';
                 span.style.top = Math.random() * 100 + 'vh';
+                // Add to body so they are behind the wrapper
                 document.body.appendChild(span);
             }
         }
@@ -72,11 +75,14 @@
             const msg = document.getElementById('message');
             const noBtn = document.getElementById('noBtn');
             
+            // Random message
             msg.innerText = messages[Math.floor(Math.random() * messages.length)];
             
+            // Shrink
             if (scaleValue > 0.3) scaleValue -= 0.05; 
             noBtn.style.transform = `scale(${scaleValue})`;
 
+            // Jump
             noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
             noBtn.style.top = Math.random() * (window.innerHeight - 100) + "px";
         }
