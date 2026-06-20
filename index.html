@@ -11,7 +11,7 @@
         }
         .card { background: rgba(255, 255, 255, 0.95); padding: 50px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); max-width: 600px; }
         h1 { color: #d63384; font-size: 2em; }
-        .buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+        .buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; align-items: center; }
         button { padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         #yesBtn { background: #d63384; color: white; font-size: 1.2em; }
         #noBtn { background: #e0e0e0; color: #555; }
@@ -30,6 +30,8 @@
 
     <script>
         let clickCount = 0;
+        let scaleValue = 1; 
+
         const messages = [
             "Prativha, my Baby, Birdie, Bacha, Jaana, I love you.",
             "Please, give me another chance? My heart beats only for you.",
@@ -50,13 +52,16 @@
         function changeContent() {
             const msg = document.getElementById('message');
             const wrapper = document.getElementById('wrapper');
+            const noBtn = document.getElementById('noBtn');
             
             if (clickCount < messages.length - 1) {
                 clickCount++;
                 msg.innerText = messages[clickCount];
                 wrapper.style.background = backgrounds[clickCount];
-            } else {
-                document.getElementById('noBtn').style.display = 'none';
+                
+                // Shrink the button
+                scaleValue -= 0.15; 
+                noBtn.style.transform = `scale(${scaleValue})`;
             }
         }
     </script>
